@@ -1,0 +1,59 @@
+<div class="main-content main ui container">
+    <div class="content">
+        <h1>{{ 'NGVIEW.SETTINGS.VIEW.SETTINGS' | translate }}</h1>
+        <form id="settings-form" class="ui form">
+            <h4 class="ui horizontal divider header">
+                <i class="setting icon"></i>
+                {{ 'NGVIEW.SETTINGS.VIEW.GENERAL' | translate }}
+            </h4>
+            <div class="field">
+                <label>{{ 'NGVIEW.SETTINGS.VIEW.LANGUAGE' | translate }}</label>
+                <select ng-model="settings.general.language">
+                    <option value="en_US">English</option>
+                    <option value="ru_RU">Русский</option>
+                </select>
+            </div>
+
+            <h4 class="ui horizontal divider header">
+                <i class="wifi icon"></i>
+                {{ 'NGVIEW.SETTINGS.VIEW.SYNCHRONIZATION' | translate }}
+            </h4>
+
+            <div class="field">
+                <label>{{ 'NGVIEW.SETTINGS.VIEW.SYNCHRONIZATION_ON_STARTUP' | translate }}</label>
+                <select ng-model="settings.synchronization.startup">
+                    <option value="1">{{ 'NGVIEW.SETTINGS.VIEW.ENABLED' | translate }}</option>
+                    <option value="0">{{ 'NGVIEW.SETTINGS.VIEW.DISABLED' | translate }}</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>{{ 'NGVIEW.SETTINGS.VIEW.SYNCHRONIZATION_FREQUENCY' | translate }}</label>
+                <select ng-model="settings.synchronization.frequency">
+                    <option value="60">{{ 'NGVIEW.SETTINGS.VIEW.SYNC_FREQUENCY_1_HOUR' | translate }}</option>
+                    <option value="180">{{ 'NGVIEW.SETTINGS.VIEW.SYNC_FREQUENCY_3_HOURS' | translate }}</option>
+                    <option value="360">{{ 'NGVIEW.SETTINGS.VIEW.SYNC_FREQUENCY_6_HOURS' | translate }}</option>
+                    <option value="720">{{ 'NGVIEW.SETTINGS.VIEW.SYNC_FREQUENCY_12_HOURS' | translate }}</option>
+                    <option value="1440">{{ 'NGVIEW.SETTINGS.VIEW.SYNC_FREQUENCY_24_HOURS' | translate }}</option>
+                    <option value="-1">{{ 'NGVIEW.SETTINGS.VIEW.SYNC_FREQUENCY_MANUAL' | translate }}</option>
+                </select>
+            </div>
+
+            <h4 class="ui horizontal divider header">
+                <i class="sitemap icon"></i>
+                {{ 'NGVIEW.SETTINGS.VIEW.NODE' | translate }}
+            </h4>
+            <div class="field">
+                <label>{{ 'NGVIEW.SETTINGS.VIEW.NODE_NAME' | translate }}</label>
+                <input type="text" data-validate="settings.node.name" required ng-model="settings.node.name">
+            </div>
+            <div class="field">
+                <label>{{ 'NGVIEW.SETTINGS.VIEW.NETWORK_TOKEN' | translate }}</label>
+                <input type="text" data-validate="settings.node.token" required ng-model="settings.node.token">
+            </div>
+
+            <button type="button" class="ui primary button right floated" ng-click="saveSettings()">{{ 'BUTTON.SAVE' | translate }}</button>
+        </form>
+    </div>
+</div>
+
+<electron-menu-update route="settings/view"></electron-menu-update>

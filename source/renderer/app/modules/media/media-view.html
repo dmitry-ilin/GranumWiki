@@ -1,0 +1,21 @@
+<div class="main-content main ui container piled segment">
+    <div class="content">
+        <h1>{{media.title}}</h1>
+        <p ng-bind-html="media.description | markdownHtmlEntities | markdownLinksHashtag:'media'"></p>
+
+        <div ng-bind-html="preview"></div>
+
+        <h3 class="ui dividing header" ng-if="articles.length">
+            {{ 'NGVIEW.MEDIA.VIEW.ARTICLES' | translate }}
+        </h3>
+        <div class="ui middle aligned ordered list">
+            <div class="item" ng-repeat="article in articles" ng-if="articles.length">
+                <div class="content">
+                    <a class="header" href="#/article/view/{{article.uuid}}">{{article.title}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<electron-menu-update route="media/view"></electron-menu-update>

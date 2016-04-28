@@ -1,0 +1,23 @@
+<div class="main-content main ui container" ng-controller="ArticleEditFormController" electron-links-external markdown-links-anchor>
+    <div class="content">
+        <div id="article-form" class="ui form">
+            <div class="field">
+                <label>
+                    {{ 'NGVIEW.ARTICLE.EDIT.TITLE' | translate }}
+                </label>
+                <input data-validate="article.title" required ng-model="article.title" type="text" placeholder="{{ 'NGVIEW.ARTICLE.EDIT.TITLE' | translate }}">
+            </div>
+
+            <div class="field" ng-controller="MarkdownEditorController">
+                <label>
+                    {{ 'NGVIEW.ARTICLE.EDIT.CONTENT' | translate }}
+                </label>
+                <textarea id="#article-content" rows="10"></textarea>
+                <div ng-include="'./app/modules/markdown/editor/selector/media/media-view.html'"></div>
+            </div>
+
+            <button type="button" class="ui secondary button" ng-click="cancelArticle()">{{ 'BUTTON.CANCEL' | translate }}</button>
+            <button type="button" class="ui primary right floated button" ng-click="saveArticle()" id="saveArticle">{{ 'BUTTON.SAVE' | translate }}</button>
+        </div>
+    </div>
+</div>

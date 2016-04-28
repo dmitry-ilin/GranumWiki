@@ -1,0 +1,33 @@
+<div class="main-content main ui container" ng-controller="MediaEditFormController">
+    <div class="content">
+        <div id="media-form" class="ui form">
+            <div class="field">
+                <label>
+                    {{ 'NGVIEW.MEDIA.EDIT.TITLE' | translate }}
+                </label>
+                <input data-validate="media.title" required ng-model="media.title" type="text" placeholder="{{ 'NGVIEW.MEDIA.EDIT.TITLE' | translate }}">
+            </div>
+
+            <div class="field">
+                <label>
+                    {{ 'NGVIEW.MEDIA.EDIT.DESCRIPTION' | translate }}
+                </label>
+                <textarea ng-model="media.description" rows="4"></textarea>
+            </div>
+
+            <div class="field">
+                <label>
+                    {{ 'NGVIEW.MEDIA.EDIT.CONTENT' | translate }}
+                </label>
+                <button type="button" class="ui primary labeled icon button" ng-click="selectMedia()" id="selectMedia"><i class="outlined file icon"></i> {{ 'BUTTON.SELECT_FILE' | translate }}</button>
+                <div id="media-preview" class="ui segment">
+                    <div class="ui top attached label">{{ 'NGVIEW.MEDIA.EDIT.PREVIEW' | translate }}</div>
+                    <div ng-bind-html="preview"></div>
+                </div>
+            </div>
+
+            <button type="button" class="ui secondary button" ng-click="cancelMedia()">{{ 'BUTTON.CANCEL' | translate }}</button>
+            <button type="button" class="ui primary right floated button" ng-click="saveMedia()" id="saveMedia">{{ 'BUTTON.SAVE' | translate }}</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="ui top fixed inverted menu" ng-controller="TitlebarController">
+    <div class="item cursor-pointer" ng-click="openSidebar()">
+        <i class="sidebar icon"></i>
+    </div>
+    <div class="item">Granum Wiki</div>
+    <div class="right item">
+        <div class="ui inverted transparent icon search input">
+        <input id="global-search-input" class="prompt" type="text" placeholder="{{ 'TITLEBAR.SEARCH' | translate }}" ng-enter="searchArticles()" ng-model="$parent.$parent.query">
+            <i class="search icon" ng-click="searchArticles()"></i>
+        </div>
+    </div>
+</div>

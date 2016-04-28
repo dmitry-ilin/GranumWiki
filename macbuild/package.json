@@ -1,0 +1,21 @@
+{
+  "name": "GranumWikiMacbuild",
+  "version": "0.1.0",
+  "description": "A personal distributed Wiki builder",
+  "scripts": {
+    "pack-app": "appdmg ./appdmg.json ../source/dist/GranumWiki.dmg",
+    "clear": "rimraf ../source/dist",
+    "dist": "npm run clear && npm run build-app && npm run pack-app",
+    "build-app": "cd ../source && npm run pack && cd ../macbuild"
+  },
+  "author": {
+    "name": "Dmitry Ilin",
+    "email": "i@dmitryilin.com",
+    "url": "http://dmitryilin.com"
+  },
+  "license": "GPL-2.0",
+  "dependencies": {
+    "appdmg": "^0.3.6",
+    "rimraf": "^2.5.2"
+  }
+}

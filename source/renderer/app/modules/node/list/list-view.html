@@ -1,0 +1,33 @@
+<div class="main-content main ui container">
+    <div class="content">
+        <h1>{{ 'NGVIEW.NODE.LIST.NODES' | translate }}</h1>
+        <table class="ui celled striped unstackable table">
+            <thead>
+                <tr>
+                    <th class="one wide">#</th>
+                    <th class="eleven wide">{{ 'NGVIEW.NODE.LIST.NODE_NAME' | translate }}</th>
+                    <th class="center aligned four wide">{{ 'NGVIEW.NODE.LIST.NODE_IS_CURRENT' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="node in nodes">
+                    <td>{{$index + 1}}</td>
+                    <td>{{node.name}}</td>
+                    <td class="center aligned">
+                        <span class="ui green label" ng-hide="{{!node.isCurrent}}">{{ 'NGVIEW.NODE.LIST.ITEM.CURRENT.YES' | translate }}</span>
+                        <span class="ui grey label" ng-hide="{{node.isCurrent}}">{{ 'NGVIEW.NODE.LIST.ITEM.CURRENT.NO' | translate }}</span>
+                    </td>
+                </tr>
+                <tr class="node-list-loader">
+                    <td colspan="3" class="center aligned">
+                        <div class="ui loading basic very padded segment"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="ui primary button right floated" ng-click="refreshNodes()">{{ 'BUTTON.REFRESH_LIST' | translate }}</button>
+    </div>
+</div>
+
+<electron-menu-update route="nodes/view"></electron-menu-update>

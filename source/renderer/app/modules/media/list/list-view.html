@@ -1,0 +1,50 @@
+<div class="main-content main ui container">
+    <div class="ui fluid action right labeled input">
+        <div class="ui label">{{ 'NGVIEW.MEDIA.LIST.SEARCH' | translate }}</div>
+        <input type="search" ng-enter="searchMediaItems()" ng-model="query">
+        <button ng-click="searchMediaItems()" class="ui icon button primary">
+            <i class="search icon"></i>
+        </button>
+    </div>
+
+    <div class="ui segment">
+        <div ng-if="isLoading" class="ui loading basic very padded segment"></div>
+        <div class="ui basic padded center aligned segment" ng-if="mediaNotFound">
+            <p ng-if="isEmptyQuery == false">{{ 'NGVIEW.MEDIA.LIST.NOT_FOUND' | translate }}</p>
+            <p ng-if="isEmptyQuery == true">{{ 'NGVIEW.MEDIA.LIST.NO_MEDIA' | translate }}</p>
+            <p ng-if="isEmptyQuery == true">
+                <a href="#/media/new/">{{ 'NGVIEW.MEDIA.LIST.CREATE_NEW' | translate }}</a>
+            </p>
+        </div>
+        <div class="ui four special cards">
+            <div ng-repeat="media in mediaItems" class="ui card">
+                <div class="blurring dimmable image">
+                    <a href="#/media/view/{{media.uuid}}" class="ui dimmer">
+                        <div class="content">
+                            <div class="center">
+                                <div class="ui inverted basic button">{{ 'NGVIEW.MEDIA.LIST.VIEW' | translate }}</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="center aligned" ng-bind-html="getPreview(media)">
+                    </div>
+                </div>
+                <div class="content">
+                    <a class="header" href="#/media/view/{{media.uuid}}">{{media.title}}</a>
+                    <div class="meta">
+                        <span class="category">{{getCategory(media) | translate}}</span>
+                    </div>
+                    <div class="description">
+                        <p ng-bind-html="media.description | markdownHtmlEntities | limitTo:150 | markdownTextDotsKeep:150"></p>
+                    </div>
+                </div>
+                <div class="extra content" ng-if="media.hashtags">
+                    <div ng-bind-html="media.hashtags | markdownLinksHashtag:'media'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<electron-menu-update route="default"></electron-menu-update>

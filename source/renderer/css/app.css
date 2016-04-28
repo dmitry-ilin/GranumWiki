@@ -1,0 +1,61 @@
+body,
+.view-container,
+.main-content {
+    height: 100%;
+}
+
+.main-content,
+.main-content.piled.segment.ui {
+    margin-top: 4.5em;
+    margin-bottom: 2em;
+}
+
+.main-content img {
+    max-width: 100%;
+}
+
+.title-bar input,
+.title-bar input:focus {
+    height: 1.5rem;
+    background: inherit;
+    border: none;
+    border-bottom: 1px solid #cacaca;
+    color: #fff;
+    box-shadow: none;
+}
+
+.title-bar .title-bar-right .menu li {
+    padding-left: 0.75rem;
+}
+
+body .editor-preview pre {
+    background: inherit;
+}
+
+#off-canvas {
+    max-height: none;
+}
+
+#searchbar {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 100;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.editor-toolbar.fullscreen,
+.editor-preview-side,
+.CodeMirror-fullscreen {
+    margin-top: 3em;
+}
+
+.node-list-loader {
+    display: none;
+}
+.node-list-loader:only-child {
+    display: table-row;
+}

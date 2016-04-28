@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html ng-app="GranumWiki">
+    <head>
+        <meta charset="UTF-8">
+        <title>Granum Wiki</title>
+        <link rel="stylesheet" href="./components/semantic/dist/semantic.min.css">
+        <link rel="stylesheet" href="./components/simplemde/dist/simplemde.min.css" />
+        <link rel="stylesheet" href="./components/highlight-js/src/styles/default.css">
+        <link rel="stylesheet" href="./components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./css/app.css" />
+        <script>window.$ = window.jQuery = require('./components/jquery/dist/jquery.min.js');</script>
+
+    </head>
+    <body>
+        <div id="off-canvas" class="ui vertical inverted sidebar menu left" ng-include="'./app/modules/sidebar/sidebar-view.html'"></div>
+
+        <div class="pusher">
+            <div ng-include="'./app/modules/titlebar/titlebar-view.html'"></div>
+            <div ng-view class="view-frame"></div>
+            <div ng-include="'./app/modules/searchbar/searchbar-view.html'"></div>
+
+            <div id="saving-dimmer" class="ui dimmer">
+                <div class="ui large text loader">{{ 'FORM.SAVING' | translate }}</div>
+            </div>
+        </div>
+
+        <!-- Notifyjs -->
+        <script>require('./components/notifyjs/dist/notify.js')(window, jQuery);</script>
+
+        <!-- Highlight -->
+        <script src="./js/highlight-js/highlight.pack.js"></script>
+
+        <!-- Markdown It -->
+        <script src="./components/markdown-it/dist/markdown-it.js"></script>
+        <script src="./js/overrides/markdown-it-html5-embed.js"></script>
+        <script src="./js/overrides/markdown-it-hashtag.js"></script>
+
+        <!-- Angular -->
+        <script src="./components/angular/angular.min.js"></script>
+        <script src="./components/angular-route/angular-route.min.js"></script>
+        <script src="./components/angular-resource/angular-resource.min.js"></script>
+        <script src="./components/angular-translate/angular-translate.min.js"></script>
+        <script src="./components/angular-notifyjs/angular-notifyjs.js"></script>
+        <script src="./components/ng-enter/dist/ngEnter.js"></script>
+        <script src="./js/overrides/ng-markdownit.js"></script>
+
+        <!-- Semantic -->
+        <script src="./components/semantic/dist/semantic.min.js"></script>
+
+        <!-- Markdown -->
+        <script src="./js/overrides/angular-sanitize.js"></script>
+        <script src="./components/simplemde/dist/simplemde.min.js"></script>
+
+        <!-- App -->
+        <script src="./app/modules/i18n/i18n.js"></script>
+        <script src="./app/modules/electron/electron.js"></script>
+        <script src="./app/modules/electron/links/external/external-directive.js"></script>
+        <script src="./app/modules/electron/menu/update/update-directive.js"></script>
+        <script src="./app/modules/electron/dimmer/saving/saving-service.js"></script>
+        <script src="./app/modules/sidebar/sidebar.js"></script>
+        <script src="./app/modules/sidebar/sidebar-controller.js"></script>
+        <script src="./app/modules/titlebar/titlebar.js"></script>
+        <script src="./app/modules/titlebar/titlebar-controller.js"></script>
+        <script src="./app/modules/searchbar/searchbar.js"></script>
+        <script src="./app/modules/searchbar/searchbar-controller.js"></script>
+        <script src="./app/modules/notifications/notifications.js"></script>
+        <script src="./app/modules/notifications/notifications-service.js"></script>
+        <script src="./app/modules/node/node.js"></script>
+        <script src="./app/modules/node/node-service.js"></script>
+        <script src="./app/modules/node/list/list-controller.js"></script>
+        <script src="./app/modules/settings/settings.js"></script>
+        <script src="./app/modules/settings/settings-service.js"></script>
+        <script src="./app/modules/settings/settings-controller.js"></script>
+        <script src="./app/modules/markdown/markdown.js"></script>
+        <script src="./app/modules/markdown/mime/mime-service.js"></script>
+        <script src="./app/modules/markdown/text/text-filter.js"></script>
+        <script src="./app/modules/markdown/text/dots/keep/keep-filter.js"></script>
+        <script src="./app/modules/markdown/html/entities/entities-filter.js"></script>
+        <script src="./app/modules/markdown/links/hashtag/hashtag-filter.js"></script>
+        <script src="./app/modules/markdown/links/anchor/anchor-directive.js"></script>
+        <script src="./app/modules/markdown/editor/editor-controller.js"></script>
+        <script src="./app/modules/markdown/editor/selector/media/media-controller.js"></script>
+        <script src="./app/modules/article/article.js"></script>
+        <script src="./app/modules/article/article-service.js"></script>
+        <script src="./app/modules/article/recent/recent-service.js"></script>
+        <script src="./app/modules/article/article-controller.js"></script>
+        <script src="./app/modules/article/list/list-controller.js"></script>
+        <script src="./app/modules/article/new/new-controller.js"></script>
+        <script src="./app/modules/article/edit/edit-controller.js"></script>
+        <script src="./app/modules/article/edit/form/form-controller.js"></script>
+        <script src="./app/modules/media/media.js"></script>
+        <script src="./app/modules/media/media-service.js"></script>
+        <script src="./app/modules/media/preview/preview-service.js"></script>
+        <script src="./app/modules/media/media-controller.js"></script>
+        <script src="./app/modules/media/list/list-controller.js"></script>
+        <script src="./app/modules/media/new/new-controller.js"></script>
+        <script src="./app/modules/media/edit/edit-controller.js"></script>
+        <script src="./app/modules/media/edit/form/form-controller.js"></script>
+        <script src="./app/app.js"></script>
+
+        <script src="./js/scripts.js"></script>
+    </body>
+</html>

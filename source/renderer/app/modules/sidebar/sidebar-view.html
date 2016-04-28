@@ -1,0 +1,35 @@
+<div ng-controller="SidebarController">
+    <div class="item">
+        <div class="header">{{ 'SIDEBAR.MENU' | translate }}</div>
+        <div class="menu">
+            <div class="item">
+                <a href="#/article/list" title="{{ 'SIDEBAR.SEARCH' | translate }}" ng-click="closeSidebar()">
+                    <i class="search icon"></i>{{ 'SIDEBAR.SEARCH' | translate }}
+                </a>
+            </div>
+            <div class="item">
+                <a href="#/media/list" title="{{ 'SIDEBAR.MEDIA' | translate }}" ng-click="closeSidebar()">
+                    <i class="file image outline icon"></i>{{ 'SIDEBAR.MEDIA' | translate }}
+                </a>
+            </div>
+            <div class="item">
+                <a href="#/settings/view" title="{{ 'SIDEBAR.SETTINGS' | translate }}" ng-click="closeSidebar()">
+                    <i class="settings icon"></i>{{ 'SIDEBAR.SETTINGS' | translate }}
+                </a>
+            </div>
+            <div class="item">
+                <a href="#/node/list" title="{{ 'SIDEBAR.NODES' | translate }}" ng-click="closeSidebar()">
+                    <i class="sitemap icon"></i>{{ 'SIDEBAR.NODES' | translate }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="header">{{ 'SIDEBAR.RECENT_ARTICLES' | translate }}</div>
+        <div class="menu">
+            <div class="item" ng-repeat="article in recentArticles">
+                <a href="#/article/view/{{article.uuid}}" title="{{article.title}}" ng-click="closeSidebar()">{{article.title | limitTo:50 | markdownTextDotsKeep: 50}}</a>
+            </div>
+        </div>
+    </div>
+</div>

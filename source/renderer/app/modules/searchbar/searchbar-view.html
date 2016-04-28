@@ -1,0 +1,28 @@
+<div id="searchbar" class="ui secondary segment" ng-controller="SearchbarController" style="display: none; opacity: 0; bottom: -100px;">
+    <div class="ui horizontal list">
+        <div class="item">
+            <div class="ui icon input">
+                <i class="search icon"></i>
+                <input type="search" ng-model="searchText" ng-change="startSearch(searchText)" ng-enter="searchNext(searchText)" placeholder="{{ 'SEARCHBAR.PAGE_SEARCH' | translate }}" id="page-search-input">
+            </div>
+        </div>
+        <div class="item">
+            <div class="ui icon buttons">
+                <button type="button" ng-click="searchPrev(searchText)" class="ui icon button" id="page-search-previous">
+                    <i class="chevron up icon"></i>
+                </button>
+                <button type="button" ng-click="searchNext(searchText)" class="ui icon button" id="page-search-next">
+                    <i class="chevron down icon"></i>
+                </button>
+            </div>
+        </div>
+        <div class="item">
+            <span class="menu-text">
+                {{ 'SEARCHBAR.TOTAL_RESULTS' | translate }}
+            </span>
+            <span class="menu-text">
+                <strong><span id="page-search-results">0</span></strong>
+            </span>
+        </div>
+    </div>
+</div>

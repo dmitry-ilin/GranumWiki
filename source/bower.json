@@ -1,0 +1,32 @@
+{
+  "name": "GranumWiki",
+  "description": "",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.x",
+    "angular-mocks": "1.5.x",
+    "jquery": "~2.1.4",
+    "angular-route": "1.5.x",
+    "angular-resource": "1.5.x",
+    "angular-animate": "1.5.x",
+    "angular-sanitize": "^1.5.0",
+    "simplemde": "^1.10.0",
+    "highlight-js": "^9.2.0",
+    "angular-translate": "^2.10.0",
+    "font-awesome": "fontawesome#^4.5.0",
+    "angular-notifyjs": "^0.1.0",
+    "semantic": "semantic-ui#^2.1.8",
+    "angular-markdown-it": "0.4.0",
+    "markdown-it-hashtag": "0.4.0",
+    "markdown-it-html5-embed": "0.3.2",
+    "ng-enter": "ngEnter#^0.0.1"
+  },
+  "resolutions": {
+    "jquery": "~2.2.0",
+    "angular": "1.5.x",
+    "angular-route": "1.5.x",
+    "angular-resource": "1.5.x",
+    "angular-sanitize": "^1.5.0"
+  }
+}

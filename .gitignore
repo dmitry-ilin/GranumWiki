@@ -1,0 +1,10 @@
+node_modules
+.idea
+*~
+.DS_Store
+npm-debug.log
+bower_components
+source/dist
+.sass-cache
+source/renderer/components
+releases

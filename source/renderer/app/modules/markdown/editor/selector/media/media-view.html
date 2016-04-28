@@ -1,0 +1,45 @@
+<div ng-controller="MarkdownEditorSelectorMediaController" class="ui fullscreen modal" id="media-selector">
+    <div class="header">
+        {{ 'NGVIEW.ARTICLE.EDIT.MEDIA.SELECTOR.SELECT_A_MEDIA' | translate }}
+    </div>
+
+    <div class="content">
+        <div class="ui fluid action right labeled input">
+            <div class="ui label">{{ 'NGVIEW.MEDIA.LIST.SEARCH' | translate }}</div>
+            <input type="search" ng-enter="searchMediaItems()" ng-model="query">
+            <button ng-click="searchMediaItems()" class="ui icon button primary">
+                <i class="search icon"></i>
+            </button>
+        </div>
+        <div class="ui segment">
+            <div class="ui four special cards">
+                <div ng-repeat="media in mediaItems" class="ui card">
+                    <div ng-click="insertMedia(media)" class="blurring dimmable image">
+                        <div class="ui dimmer">
+                            <div class="content">
+                                <div class="center">
+                                    <div class="ui inverted basic button">{{ 'NGVIEW.ARTICLE.EDIT.MEDIA.SELECTOR.SELECT' | translate }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="center aligned" ng-bind-html="getPreview(media)">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="header">{{media.title}}</div>
+                        <div class="meta">
+                            <span class="category">{{getCategory(media) | translate}}</span>
+                        </div>
+                        <div class="description">
+                            <p ng-bind-html="media.description | markdownHtmlEntities | limitTo:150 | markdownTextDotsKeep:150"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions">
+        <div class="ui cancel button">{{ 'BUTTON.CANCEL' | translate }}</div>
+    </div>
+</div>

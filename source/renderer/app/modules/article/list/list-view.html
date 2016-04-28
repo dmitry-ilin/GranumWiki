@@ -1,0 +1,34 @@
+<div class="main-content main ui container">
+    <div class="ui fluid action right labeled input">
+        <div class="ui label">{{ 'NGVIEW.ARTICLE.LIST.SEARCH' | translate }}</div>
+        <input type="search" ng-enter="searchArticles()" ng-model="query">
+        <button ng-click="searchArticles()" class="ui icon button primary">
+            <i class="search icon"></i>
+        </button>
+    </div>
+
+    <div class="ui tall stacked segment">
+        <div ng-if="isLoading" class="ui loading basic very padded segment"></div>
+        <div class="ui basic padded center aligned segment" ng-if="articlesNotFound">
+            <p ng-if="isEmptyQuery == false">{{ 'NGVIEW.ARTICLE.LIST.NOT_FOUND' | translate }}</p>
+            <p ng-if="isEmptyQuery == true">{{ 'NGVIEW.ARTICLE.LIST.NO_ARTICLES' | translate }}</p>
+            <p ng-if="isEmptyQuery == true">
+                <a href="#/article/new/">{{ 'NGVIEW.ARTICLE.LIST.CREATE_NEW' | translate }}</a>
+            </p>
+        </div>
+        <div class="ui divided items">
+            <div class="item article-listing" ng-repeat="article in articles">
+                <div class="content">
+                    <a href="#/article/view/{{article.uuid}}" title="{{article.title}}" class="header">{{article.title}}</a>
+                    <div class="description">
+                        <p>{{article.content | markdownText | limitTo:300 | markdownTextDotsKeep:300}}</p>
+                    </div>
+                    <div class="extra" ng-bind-html="article.hashtags | markdownLinksHashtag:'article'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<electron-menu-update route="default"></electron-menu-update>
