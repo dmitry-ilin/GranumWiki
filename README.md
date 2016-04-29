@@ -29,13 +29,13 @@ The same rules are valid for media as well.
 
 ### Hotkeys
 
-Cmd/Ctrl + Shift + C - Copy currently opened article/media markdown code to clipboard
-Cmd/Ctrl + N - Create a new article
-Cmd/Ctrl + J - Create a new media
-Cmd/Ctrl + E - Edit currently opened article/media
-Cmd/Ctrl + S - Save currently opened article
-Cmd/Ctrl + F - Search for text on current view
-Cmd/Ctrl + Shift + F - Search for article
+* Cmd/Ctrl + Shift + C - Copy currently opened article/media markdown code to clipboard
+* Cmd/Ctrl + N - Create a new article
+* Cmd/Ctrl + J - Create a new media
+* Cmd/Ctrl + E - Edit currently opened article/media
+* Cmd/Ctrl + S - Save currently opened article
+* Cmd/Ctrl + F - Search for text on current view
+* Cmd/Ctrl + Shift + F - Search for article
 
 ## Development info
 
