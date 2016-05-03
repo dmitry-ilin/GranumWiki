@@ -112,6 +112,9 @@ module.exports = {
                         'SELECT_A_MEDIA': 'Выберите медиа для вставки'
                     }
                 }
+            },
+            'VIEW': {
+                'NOT_FOUND': 'Статья не найдена'
             }
         },
         'MEDIA': {

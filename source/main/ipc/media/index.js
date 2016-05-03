@@ -32,10 +32,15 @@ ipcMain.on('media-find-query', function(event, data) {
     mediaIpc.mediaFind(
         data.uuid,
         function(media) {
-            logger.info('Media found: [' + media.uuid + '] ' + media.title);
-            event.sender.send('media-find-reply', media.get({
-                plain: true
-            }));
+            if (media) {
+                logger.info('Media found: [' + media.uuid + '] ' + media.title);
+                event.sender.send('media-find-reply', media.get({
+                    plain: true
+                }));
+            } else {
+                logger.info('Media not found: [' + data.uuid + ']');
+                event.sender.send('media-find-reply-error', { 'not_found': true });
+            }
         },
         function(err) {
             logger.error(err);

@@ -1,7 +1,7 @@
 'use strict';
 
-granumArticle.controller('ArticleEditFormController', ['$scope', '$routeParams', '$location', 'Article', 'Notifications', '$translate',
-    function($scope, $routeParams, $location, Article, Notifications, $translate) {
+granumArticle.controller('ArticleEditFormController', ['$scope', '$routeParams', '$location', 'Article', 'Notifications', '$translate', '$window',
+    function($scope, $routeParams, $location, Article, Notifications, $translate, $window) {
 
         let $form = angular.element('#article-form');
         $translate('FORM.ERROR.REQUIRED').then((translation) => {
@@ -30,6 +30,10 @@ granumArticle.controller('ArticleEditFormController', ['$scope', '$routeParams',
 
                 if ($scope.simplemde) {
                     $scope.simplemde.value(article.content);
+                }
+            }).catch(function(err) {
+                if (err['not_found']) {
+                    $window.location.hash = '#/article/new/';
                 }
             });
         } else {

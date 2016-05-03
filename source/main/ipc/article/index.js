@@ -52,21 +52,26 @@ ipcMain.on('article-find-query', function(event, data) {
     articleIpc.articleFind(
         data.uuid,
         function(article) {
-            logger.info('Article found: [' + article.uuid + '] ' + article.title);
-            let plain = article.get({
-                plain: true
-            });
-            articleIpc.getMimeTypesFromArticleContent(
-                article.content,
-                function(mimeTypes) {
-                    plain.mimeTypes = mimeTypes;
-                    event.sender.send('article-find-reply', plain);
-                },
-                function(err) {
-                    logger.error(err);
-                    event.sender.send('article-find-reply', plain);
-                }
-            );
+            if (article) {
+                logger.info('Article found: [' + article.uuid + '] ' + article.title);
+                let plain = article.get({
+                    plain: true
+                });
+                articleIpc.getMimeTypesFromArticleContent(
+                    article.content,
+                    function(mimeTypes) {
+                        plain.mimeTypes = mimeTypes;
+                        event.sender.send('article-find-reply', plain);
+                    },
+                    function(err) {
+                        logger.error(err);
+                        event.sender.send('article-find-reply', plain);
+                    }
+                );
+            } else {
+                logger.info('Article not found: [' + data.uuid + ']');
+                event.sender.send('article-find-reply-error', { 'not_found': true });
+            }
         },
         function(err) {
             logger.error(err);
