@@ -55,7 +55,7 @@ class WindowManager extends EventEmitter {
         let appWindow = new BrowserWindow({
             'width': size.width,
             'height': size.height,
-            'min-width': config.window.minHWidth,
+            'min-width': config.window.minWidth,
             'min-height': config.window.minHeight
         });
         let id = appWindow.id;

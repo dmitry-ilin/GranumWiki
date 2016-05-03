@@ -32,7 +32,7 @@
     function markdownItDirective($sanitize, markdownIt) {
         var attribute = 'markdownIt';
         var render = function(value) {
-            return value ? $sanitize(markdownIt.render(value)) : '';
+            return value ? $sanitize(decorate(markdownIt.render(value))) : '';
         };
         var link = function(scope, element, attrs) {
             if (attrs[attribute]) {
@@ -45,6 +45,7 @@
         };
         return {
             restrict: 'AE',
+            priority: 10,
             scope: {
                 markdownIt: '='
             },
@@ -52,7 +53,29 @@
             link: link
         };
     }
+    function markdownItFilter($sanitize, markdownIt) {
+        var render = function(value) {
+            return value ? $sanitize(decorate(markdownIt.render(value))) : '';
+        };
+        return function(text) {
+            if (text) {
+                text = render(text);
+            }
+            return text;
+        };
+    }
+    function decorate(element) {
+        let container = angular.element('<div/>').html(element);
+        container
+            .find('table')
+            .addClass('ui')
+            .addClass('celled')
+            .addClass('unstackable')
+            .addClass('table');
+        return container.html();
+    }
     angular.module('mdMarkdownIt', ['ngSanitize'])
         .provider('markdownItConverter', markdownItProvider)
-        .directive('markdownIt', ['$sanitize', 'markdownItConverter', markdownItDirective]);
+        .directive('markdownIt', ['$sanitize', 'markdownItConverter', markdownItDirective])
+        .filter('markdownIt', ['$sanitize', 'markdownItConverter', markdownItFilter]);
 })(window, window.angular, window.markdownit);
