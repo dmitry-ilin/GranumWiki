@@ -1,6 +1,6 @@
 {
   "name": "GranumWiki",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "A personal distributed Wiki",
   "main": "main.js",
   "scripts": {
