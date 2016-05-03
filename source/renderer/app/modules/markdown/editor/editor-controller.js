@@ -1,7 +1,7 @@
 'use strict';
 
-granumMarkdown.controller('MarkdownEditorController', ['$scope', 'markdownItConverter', '$filter', '$translate', 'MarkdownMime',
-    function($scope, markdownItConverter, $filter, $translate, MarkdownMime) {
+granumMarkdown.controller('MarkdownEditorController', ['$scope', '$filter', '$translate', 'MarkdownMime',
+    function($scope, $filter, $translate, MarkdownMime) {
         const ipcRenderer = require('electron').ipcRenderer;
 
         let renderingQueue = [];
@@ -242,7 +242,7 @@ granumMarkdown.controller('MarkdownEditorController', ['$scope', 'markdownItConv
                     renderingQueue.push((callback) => {
                         function success(event, mimeTypes) {
                             MarkdownMime.setMimeTypes(mimeTypes);
-                            preview.innerHTML = markdownItConverter.render(plainText || '');
+                            preview.innerHTML = $filter('markdownIt')(plainText);
                             if (callback) {
                                 callback();
                             }
