@@ -21,6 +21,6 @@ granumNode.controller('NodeListController', ['$scope', 'Settings', 'Node', 'Noti
                     { count: $scope.nodes.length }
                 );
             });
-        }
+        };
         $scope.refreshNodes();
     }]);

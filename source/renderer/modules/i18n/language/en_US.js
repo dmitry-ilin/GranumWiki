@@ -112,6 +112,9 @@ module.exports = {
                         'SELECT_A_MEDIA': 'Select a Media to insert'
                     }
                 }
+            },
+            'VIEW': {
+                'NOT_FOUND': 'Article not found'
             }
         },
         'MEDIA': {
